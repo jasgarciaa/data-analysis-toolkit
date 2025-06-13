@@ -1,0 +1,10 @@
+#Looking into property sub class and its impact on target (Sales Price)
+plt.scatter(x = 'MSSubClass', y = 'SalePrice', data=train_d)
+
+#Looking into LotArea 
+plt.scatter(x = 'LotArea', y = 'SalePrice', data=train_d)
+#Querying out the properties exceeding 60,000 sq ft in Lot Size
+train_d.query('LotArea > 60000')
+
+#Another route of finding outliers by looking into z-scores
+stats.zscore(train_d['LotArea']).sort_values().tail(10)
