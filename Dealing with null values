@@ -1,0 +1,18 @@
+ # .isnull().sum() accounts for missing values in elds for properties in the dataset. Allows to look into what some of those differences in homes are. If we see that there are too many (subjective) missing values in a column we may have found reason to drop the column as a viable factor in determining sale price.
+ pd.set_option('display.max_rows', None)
+ train_d.isnull().sum()
+
+ PercentMissing = (train_d.isnull().sum() / len(train_d))
+ print(PercentMissing)
+
+#Creating a heatmap to visualize null value frequency
+ plt.figure(figsize=(20, 10))
+ sns.heatmap(train_d.isnull(), cbar=False, cmap='viridis', yticklabels=False)
+ plt.xticks(rotation=45, ha='right', fontsize=10)
+ plt.title('Missing Values Heatmap', fontsize=16)
+ plt.tight_layout()
+ plt.show()
+
+#Then isolating columns with 'high' missing value freq
+ ColumnswithHighMissing = PercentMissing[PercentMissing > 0.4]
+ print(ColumnswithHighMissing)
