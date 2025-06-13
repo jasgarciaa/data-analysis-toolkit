@@ -1,0 +1,12 @@
+ train_d = pd.read_csv('train.csv')
+ test_d = pd.read_csv('train.csv')
+
+ train_d.shape
+
+ train_d.head()
+
+ train_d.columns
+
+ train_d.describe()
+
+train_d.dtypes[train_d.dtypes != 'object']
