@@ -1,0 +1,3 @@
+ from sklearn.pipeline import Pipeline
+ #Unable to run regressions after LR.
+ !pip install --upgrade scikit-learn
